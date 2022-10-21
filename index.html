@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Conversor</title>
+  </head>
+  <body>
+    <nav class="main-nav">
+      <div class="container-nav">
+        <ul>
+          <a href="#binary"> <li>Binário</li></a>
+          <a href="#hexadecimal"> <li>Hexadecimal</li></a>
+          <a href="#octal"> <li>Octal</li></a>
+        </ul>
+      </div>
+    </nav>
+    <div class="convert-container">
+      <h1>Conversor de Bases numéricas</h1>
+
+      <div id="binary" class="container">
+        <div class="box">
+          <h4>Decimal para binário</h4>
+          <div>
+            <input
+              id="dec"
+              value=""
+              type="number"
+              placeholder="valor em decimal"
+            />
+          </div>
+          <input
+            id="bin"
+            value=""
+            type="number"
+            placeholder="Valor em binário"
+          />
+          <!-- <span id="convert">0</span> -->
+          <button onclick="convertDec()">Converter</button>
+        </div>
+
+        <div class="box">
+          <h4>Binário para decimal</h4>
+          <div>
+            <input
+              id="binM"
+              value=""
+              type="number"
+              placeholder="valor em binário"
+            />
+          </div>
+          <input
+            id="decM"
+            value=""
+            type="number"
+            placeholder="Valor em decimal"
+          />
+          <button onclick="convertBin()">Converter</button>
+
+          <!-- <span id="convert">0</span> -->
+        </div>
+      </div>
+      <div class="container" id="hexadecimal">
+        <div class="box">
+          <h4>Decimal para Hexadecimal</h4>
+          <div>
+            <input
+              id="deX"
+              value=""
+              type="number"
+              placeholder="valor em decimal"
+            />
+          </div>
+          <input
+            id="hexD"
+            value=""
+            type="text"
+            placeholder="Valor em Hexadecimal"
+          />
+          <button onclick="convertHex()">Converter</button>
+
+          <!-- <span id="convert">0</span> -->
+        </div>
+
+        <div class="box">
+          <h4>Hexadecimal para Decimal</h4>
+          <div>
+            <input
+              id="heD"
+              value=""
+              type="text"
+              placeholder="valor em Hexadecimal"
+            />
+          </div>
+          <input
+            id="deCX"
+            value=""
+            type="text"
+            placeholder="Valor em decimal"
+          />
+          <button onclick="hexDec()">Converter</button>
+
+          <!-- <span id="convert">0</span> -->
+        </div>
+      </div>
+      <div class="container" id="octal">
+        <div class="box">
+          <h4>Decimal para Octal</h4>
+          <div>
+            <input
+              id="decOct"
+              value=""
+              type="text"
+              placeholder="valor em decimal"
+            />
+          </div>
+          <input
+            id="octDec"
+            value=""
+            type="text"
+            placeholder="Valor em Octal"
+          />
+          <!-- <span id="convert">0</span> -->
+          <button onclick="octDec()">Converter</button>
+        </div>
+
+        <div class="box">
+          <h4>Octal para decimal</h4>
+          <div>
+            <input
+              id="OctD"
+              value=""
+              type="text"
+              placeholder="valor em Octal"
+            />
+          </div>
+          <input
+            id="DecO"
+            value=""
+            type="text"
+            placeholder="Valor em decimal"
+          />
+          <!-- <span id="convert">0</span> -->
+          <button onclick="decOct()">Converter</button>
+        </div>
+      </div>
+      <div class="social">
+        <span
+          >site criado por
+          <a href="https://devgustavocoelho07.vercel.app" target="blank"
+            >Gustavo Coelho</a
+          ></span
+        >
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  // TODO: REFATORAR
+  const convertDec = () => {
+    let decInput = document.getElementById("dec");
+    let binInput = document.getElementById("bin");
+    binInput.value = parseInt(decInput.value).toString(2);
+    // console.log(binInput.value.toString(2));
+  };
+
+  const octDec = () => {
+    let decInput = document.getElementById("decOct");
+    let octInput = document.getElementById("octDec");
+    octInput.value = parseInt(decInput.value).toString(8);
+    // console.log(binInput.value.toString(2));
+  };
+
+  const decOct = () => {
+    let decInput = document.getElementById("DecO");
+    let octInput = document.getElementById("OctD");
+    let newValue = parseInt(octInput.value, 8);
+    decInput.value = newValue;
+  };
+
+  const convertBin = () => {
+    let decInput = document.getElementById("decM");
+    let binInput = document.getElementById("binM");
+    let newValue = parseInt(binInput.value, 2);
+    decInput.value = newValue;
+
+    console.log(decInput);
+    // console.log(binInput.value.toString(2));
+  };
+
+  const convertHex = () => {
+    let decInput = document.getElementById("deX");
+    let hexInput = document.getElementById("hexD");
+    let newValue = parseInt(decInput.value).toString(16);
+    hexInput.value = newValue;
+  };
+
+  const hexDec = () => {
+    let decInput = document.getElementById("deCX");
+    let hexInput = document.getElementById("heD");
+    let newValue = parseInt(hexInput.value, 16);
+    decInput.value = newValue;
+  };
+</script>
